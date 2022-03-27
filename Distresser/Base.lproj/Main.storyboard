@@ -16,21 +16,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUb-WN-enV">
-                                <rect key="frame" x="105" y="128" width="204" height="107"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUb-WN-enV">
+                                <rect key="frame" x="105" y="128" width="204" height="45.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Click to Broadcast Emergency">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="36"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="26"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVR-Pn-IXg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4d-lW-3RJ">
+                                <rect key="frame" x="20" y="462.5" width="374" height="81.5"/>
+                                <string key="text">Note that the button to navigate is available for 10 minutes after the emergency is declared, it is assumed that emergency services would have reached by then.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZT-UZ-Oed">
+                                <rect key="frame" x="176" y="678.5" width="62" height="28.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="navigateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciX-aQ-ET8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dUb-WN-enV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Gzp-G1-Ca2"/>
+                            <constraint firstItem="dUb-WN-enV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="84" id="I5V-B8-jAb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X4d-lW-3RJ" secondAttribute="bottom" constant="318" id="IMN-QA-dGy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X4d-lW-3RJ" secondAttribute="trailing" constant="20" id="cUa-yP-Bh1"/>
+                            <constraint firstItem="8ZT-UZ-Oed" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gpf-Yf-cvE"/>
+                            <constraint firstItem="X4d-lW-3RJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oab-d2-xlQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dUb-WN-enV" secondAttribute="trailing" constant="105" id="snL-dr-bhh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="8ZT-UZ-Oed" secondAttribute="bottom" constant="155" id="t1d-83-n9N"/>
+                            <constraint firstItem="dUb-WN-enV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="z08-4L-7ED"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navigateButton" destination="8ZT-UZ-Oed" id="4He-Fy-CMK"/>
+                        <outlet property="numberLabel" destination="X4d-lW-3RJ" id="QjL-o7-C0b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
