@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A68C0527F076D10087B0DD /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A68C0427F076D10087B0DD /* HealthKit.framework */; };
 		896578BE27EF7A5C00BD3253 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 896578BD27EF7A5C00BD3253 /* FirebaseAnalytics */; };
 		896578C027EF7A5C00BD3253 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 896578BF27EF7A5C00BD3253 /* FirebaseAuth */; };
 		896578C227EF7A5C00BD3253 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 896578C127EF7A5C00BD3253 /* FirebaseDatabase */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14A68C0427F076D10087B0DD /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		896578CD27EF7BE400BD3253 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		896578CF27EF8FF600BD3253 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		89C7294727EF6903000ED197 /* Distresser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Distresser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A68C0527F076D10087B0DD /* HealthKit.framework in Frameworks */,
 				896578C827EF7A5C00BD3253 /* FirebaseMessaging in Frameworks */,
 				896578C227EF7A5C00BD3253 /* FirebaseDatabase in Frameworks */,
 				896578C427EF7A5C00BD3253 /* FirebaseFirestore in Frameworks */,
@@ -58,11 +61,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A68C0327F076D10087B0DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14A68C0427F076D10087B0DD /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		89C7293E27EF6903000ED197 = {
 			isa = PBXGroup;
 			children = (
 				89C7294927EF6903000ED197 /* Distresser */,
 				89C7294827EF6903000ED197 /* Products */,
+				14A68C0327F076D10087B0DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -327,9 +339,11 @@
 				CODE_SIGN_ENTITLEMENTS = Distresser/Distresser.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4CN2JA7Y7K;
+				DEVELOPMENT_TEAM = FL4QSRXV82;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Distresser/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -340,7 +354,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deez.distresser.Distresser;
+				PRODUCT_BUNDLE_IDENTIFIER = deez.mihir.DistresserApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -357,9 +371,11 @@
 				CODE_SIGN_ENTITLEMENTS = Distresser/Distresser.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4CN2JA7Y7K;
+				DEVELOPMENT_TEAM = FL4QSRXV82;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Distresser/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -370,7 +386,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deez.distresser.Distresser;
+				PRODUCT_BUNDLE_IDENTIFIER = deez.mihir.DistresserApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

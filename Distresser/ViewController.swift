@@ -7,10 +7,51 @@
 
 import UIKit
 import CoreLocation
+import HealthKit
 import Firebase
 import MapKit
 
 class ViewController: UIViewController {
+    
+    
+    //Asking User the permission to access HealthKit Data
+    let healthStore = HKHealthStore()
+    
+    func authorizeHealthKit() {
+        let read = Set([HKObjectType.quantityType(forIdentifier: .numberOfTimesFallen)!])
+        let share = Set([HKObjectType.quantityType(forIdentifier: .numberOfTimesFallen)!])
+        healthStore.requestAuthorization(toShare: share, read: read) { (chk, error) in
+            if (chk) {
+                print("Permission Granted")
+                self.latestFallenData()
+            }
+        }
+    
+    }
+    
+    func latestFallenData() {
+        guard let sampletype = HKObjectType.quantityType(forIdentifier: .numberOfTimesFallen) else {
+            return
+        }
+        
+        let startDate = Calendar.current.date(byAdding: .month, value: -1, to: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictEndDate)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        let query = HKSampleQuery(sampleType: sampletype, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: [sortDescriptor]) { (sample, result, error) in
+            guard error == nil else {
+                return
+            }
+            let data = result!.count
+//            let unit = HKUnit(from: "count")
+//            let latestFR = data.quantity.doubleValue(for: unit)
+            print("Latest FR \(data) times")
+        }
+        healthStore.execute(query)
+    }
+    
+    
+    
+     
 
     var latitude:String?=nil
     var longitude:String?=nil
@@ -23,8 +64,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        //locationManager.requestLocation()
-        // Do any additional setup after loading the view.
+        authorizeHealthKit()
+        
         loadData()
 
 
@@ -46,6 +87,7 @@ class ViewController: UIViewController {
         
     }
 }
+
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //print(locations[locations.count-1]) // or locations.last
