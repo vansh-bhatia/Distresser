@@ -135,7 +135,7 @@ extension ViewController: CLLocationManagerDelegate {
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "Test"
+        mapItem.name = "Location of Emergency"
         mapItem.openInMaps(launchOptions: options)
             
     }
